@@ -4,6 +4,7 @@ from sensores import leer_humedad, leer_temperatura, leer_ph
 from logica_control import controlar_riego, controlar_ventilacion, controlar_luz, evaluar_ph
 import csv
 import os
+from manejo_csv import agregar_csv_dict
 
 # Crear carpeta datos si no existe
 if not os.path.exists("datos"):
@@ -19,9 +20,12 @@ if not os.path.exists(ARCHIVO_DATOS) or os.path.getsize(ARCHIVO_DATOS) == 0:
         writer.writerow(["FechaHora", "Humedad", "Temperatura", "pH"])
 
 def guardar_datos(humedad, temperatura, ph):
-    with open(ARCHIVO_DATOS, mode="a", newline="") as file:
-        writer = csv.writer(file)
-        writer.writerow([datetime.now().strftime("%Y-%m-%d %H:%M:%S"), humedad, temperatura, ph])
+    agregar_csv_dict("datos/historial.csv",
+                     ["FechaHora", "Humedad", "Temperatura", "pH"],
+                     {"FechaHora": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
+                      "Humedad": humedad,
+                      "Temperatura": temperatura,
+                      "pH": ph})
 
 def main():
     print("=== Sistema de Invernadero Inteligente - Simulación ===")

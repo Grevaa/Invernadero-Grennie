@@ -15,3 +15,9 @@ def encender_luz():
 
 def apagar_luz():
     print("[ACTUADOR] 💡 Luz APAGADA.")
+
+def abrir_techo():
+    print("[ACTUADOR] 🏠 Techo ABIERTO")
+
+def cerrar_techo():
+    print("[ACTUADOR] 🏠 Techo CERRADO")

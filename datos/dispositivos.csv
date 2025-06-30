@@ -1,5 +1,5 @@
 id_dispositivo,usuario,ubicacion,estado,fecha_registro
 d001,jose,Invernadero A,activo,2025-06-12
 d002,jose,Invernadero B,activo,2025-06-12
-d003,ana,Terraza,mantenimiento,2025-06-11
 d004,pedro,Cartago,mantenimiento,2025-06-12
+d003,juan,Cartago,inactivo,2025-06-30

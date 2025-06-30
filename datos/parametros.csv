@@ -1,0 +1,17 @@
+usuario,id_dispositivo,parametro,valor
+juan,d001,humedad_min,40
+juan,d001,humedad_max,70
+juan,d001,temp_min,22
+juan,d001,temp_max,30
+juan,d001,ph_min,5.8
+juan,d001,ph_max,7.0
+juan,d001,hora_luz_inicio,18
+juan,d001,hora_luz_fin,6
+juan,d003,humedad_min,40
+juan,d003,humedad_max,50
+juan,d003,temp_min,25
+juan,d003,temp_max,30
+juan,d003,ph_min,5.8
+juan,d003,ph_max,7.0
+juan,d003,hora_luz_inicio,19
+juan,d003,hora_luz_fin,6
