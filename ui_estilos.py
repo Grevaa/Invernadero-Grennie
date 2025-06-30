@@ -2,10 +2,10 @@ import tkinter as tk
 from tkinter import ttk, font
 
 # Colores generales
-COLOR_FONDO = "#2c3e50"        # Fondo principal de ventanas
-COLOR_FRAME = "#34495e"         # Fondo de frames secundarios
-COLOR_BOTON = "#2980b9"         # Fondo de botones
-COLOR_TEXTO = "white"           # Color de texto general
+COLOR_FONDO = "#0B3D0B" #2c3e50"        # Fondo principal de ventanas
+COLOR_FRAME = "#176F28" #34495e"         # Fondo de frames secundarios
+COLOR_BOTON = "#2EA94B" #2980b9"         # Fondo de botones
+COLOR_TEXTO = "#FFFFFF"           # Color de texto general
 
 # Colores específicos para valores de sensores y estados
 COLOR_HUMEDAD = "#85c1e9"       # Azul claro para humedad

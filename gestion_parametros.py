@@ -1,6 +1,8 @@
+# gestion_parametros.py
 import tkinter as tk
 from tkinter import messagebox
 from manejo_csv import leer_csv_dict, escribir_csv_dict
+import ui_estilos as ui
 
 RUTA_PARAMETROS = "datos/parametros.csv"
 CAMPOS = ["usuario", "id_dispositivo", "parametro", "valor"]
@@ -50,19 +52,21 @@ def mostrar_formulario_parametros(usuario, id_disp):
     ventana = tk.Toplevel()
     ventana.title(f"Parámetros - Usuario: {usuario} - Dispositivo: {id_disp}")
     ventana.geometry("400x350")
-    ventana.configure(bg="#34495e")
+    ventana.configure(bg=ui.COLOR_FRAME)
 
     campos_vars = {}
 
-    tk.Label(ventana, text="Parámetros de Control", font=("Arial", 16, "bold"), bg="#34495e", fg="white").pack(pady=10)
+    titulo_lbl = ui.crear_label(ventana, "Parámetros de Control", font_t=ui.FUENTE_TITULO)
+    titulo_lbl.pack(pady=10)
 
-    frm = tk.Frame(ventana, bg="#34495e")
+    frm = ui.crear_frame(ventana)
     frm.pack(padx=20, pady=10, fill="both", expand=True)
 
     for idx, param in enumerate(parametros):
-        tk.Label(frm, text=param["parametro"], font=("Arial", 12), bg="#34495e", fg="white").grid(row=idx, column=0, sticky="w", pady=5)
+        lbl = ui.crear_label(frm, param["parametro"], font_t=ui.FUENTE_NORMAL)
+        lbl.grid(row=idx, column=0, sticky="w", pady=5)
         var = tk.StringVar(value=param["valor"])
-        entry = tk.Entry(frm, textvariable=var, font=("Arial", 12))
+        entry = ui.crear_entry(frm, textvariable=var)
         entry.grid(row=idx, column=1, pady=5, sticky="ew")
         campos_vars[param["parametro"]] = var
 
@@ -75,7 +79,7 @@ def mostrar_formulario_parametros(usuario, id_disp):
             if not valor:
                 messagebox.showerror("Error", f"El valor para '{param}' no puede estar vacío.")
                 return
-            # Puedes agregar validaciones numéricas aquí si quieres
+            # Aquí puedes agregar validaciones numéricas si lo deseas
             nuevos_parametros.append({
                 "usuario": usuario,
                 "id_dispositivo": id_disp,
@@ -86,12 +90,13 @@ def mostrar_formulario_parametros(usuario, id_disp):
         messagebox.showinfo("Guardado", "Parámetros guardados correctamente.")
         ventana.destroy()
 
-    btn_guardar = tk.Button(ventana, text="Guardar", command=guardar, bg="#27ae60", fg="white", font=("Arial", 12, "bold"))
+    btn_guardar = ui.crear_boton(ventana, "Guardar", command=guardar)
     btn_guardar.pack(pady=15, fill="x", padx=20)
 
     ventana.transient()
     ventana.grab_set()
     ventana.focus_force()
     ventana.wait_window()
+
 
 
